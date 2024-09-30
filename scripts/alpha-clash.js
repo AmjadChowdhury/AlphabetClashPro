@@ -7,11 +7,26 @@ function handleKeyPress(event){
 
     if(keyPressed == expectedAlphabet){
         console.log('Dui Dui e mile gese...')
+        // Update score
+        // 1. get the current score
+        const currentScore = getTextElementById('currentScore')
+        // 2. increase the score by 1
+        const newScore = currentScore + 1
+        // 3. show the updated score 
+        setTextElementById('currentScore',newScore)
+
+
         removeBackgroundColorById(keyPressed)
         continueGame()
     }
     else{
         console.log('Kichui mile nai')
+        // Step 1:get the current life number
+        const currentLife = getTextElementById('currentLife')
+        // step 2:reduce the life count
+        const newLife = currentLife - 1
+        // step 3:display the updated life count
+        setTextElementById('currentLife',newLife)
     }
 }
 
