@@ -7,6 +7,8 @@ function handleKeyPress(event){
 
     if(keyPressed == expectedAlphabet){
         console.log('Dui Dui e mile gese...')
+        removeBackgroundColorById(keyPressed)
+        continueGame()
     }
     else{
         console.log('Kichui mile nai')
