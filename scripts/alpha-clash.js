@@ -27,6 +27,11 @@ function handleKeyPress(event){
         const newLife = currentLife - 1
         // step 3:display the updated life count
         setTextElementById('currentLife',newLife)
+
+        if(newLife == 0){
+            console.log('Game over')
+            gameOver()
+        }
     }
 }
 
@@ -46,7 +51,18 @@ function continueGame(){
 }
 
 function play(){
+    // hide everything,show only playground..
     hideElementById('home-screen')
+    hideElementById('final-score')
     showElementById('playGround')
+
+    // reset score and life...
+    setTextElementById('currentScore',0)
+    setTextElementById('currentLife',5)
     continueGame()
+}
+
+function gameOver(){
+    hideElementById('playGround')
+    showElementById('final-score')
 }
