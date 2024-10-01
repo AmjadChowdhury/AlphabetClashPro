@@ -1,5 +1,8 @@
 function handleKeyPress(event){
     const keyPressed = event.key
+    if(keyPressed == 'Escape'){
+        gameOver()
+    }
 
     const currentAlphabet = document.getElementById('currentAlphabet')
     const alphabet = currentAlphabet.innerText
@@ -65,4 +68,17 @@ function play(){
 function gameOver(){
     hideElementById('playGround')
     showElementById('final-score')
+
+    // update final score...
+    // step 1..
+    const currentScore = getTextElementById('currentScore')
+    console.log(currentScore)
+    // step 2..
+    setTextElementById('last-score',currentScore)
+
+    // remove backgroud color in previous game..
+    const alphabetElement = document.getElementById('currentAlphabet')
+    const alphabet = alphabetElement.innerText
+    removeBackgroundColorById(alphabet)
+
 }
